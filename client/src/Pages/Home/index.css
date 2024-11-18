@@ -1,0 +1,171 @@
+.navbar
+{
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 8px #31363f3b;
+}
+/* 31363f3b */
+.navbar .logo
+{
+    width: 17%;
+    margin-left: 1rem;
+}
+
+.navProfile
+{
+    margin-left: auto;
+    margin-right: 2rem;
+    /*padding: 0.6rem 0.9rem;
+    border-radius: 10rem;
+    font-size: 1.1rem;
+    background-color:#31363F ;
+    color: #EEEEEE;
+    font-weight: bold;
+    text-transform: uppercase; */
+}
+
+.toLocation
+{
+    position: absolute;
+    bottom: 5rem;
+}
+.toLocation{
+    width: 100%;
+}
+.toLocation input{
+    border: 1px solid #3f3f3f3b;
+    padding: 1rem;
+    background: #EEEEEE;
+    width: 70%;
+    border-radius: 5rem;
+    color: black;
+    outline: none;
+    margin-left: 12%;
+    position: relative;
+    box-shadow: 0 0 7px #76ABAE;
+    transition: 0.5s ease;
+}
+
+.toLocation input:hover{
+    transition: 0.5s ease;
+    box-shadow: 0 0 10px #76ABAE, 0 0 10px #31363f77;
+}
+
+.toLocation input::placeholder{
+    color: #31363F;
+}
+.homeContent{
+
+    overflow: hidden;
+}
+.navigationWindow{
+    display: none;
+}
+.displayNavigationWindow{
+    position: absolute;
+    bottom: 0;
+    height: 30vh;
+    background: #f5f6fa;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.customNavbar::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+.customNavbar::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+    border-radius: 10px;
+}
+
+.customNavbar::-webkit-scrollbar-thumb {
+    background-color: #888; /* Scroll thumb color */
+    border-radius: 10px;
+    border: 2px solid #f1f1f1; /* Space around the thumb */
+}
+
+.customNavbar::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color when hovering */
+}
+
+/* Firefox Scrollbar */
+.customNavbar {
+    scrollbar-width: thin; /* Width of the scrollbar */
+    scrollbar-color: #888 #f1f1f1; /* Thumb color, track color */
+}
+
+
+
+
+.navigatioNWindowArrow{
+    text-align: center;
+    transform: translateY(-5px);
+    cursor: pointer;
+    position: fixed;
+}
+
+.locationsWindow
+{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    background: white;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(128, 128, 128, 0.253);
+    border-radius: 10px;
+    margin-top:2rem;
+}
+
+.locationsWindow label{
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.locationsWindow input
+{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    padding-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+}
+
+.locationsWindow input::placeholder{
+    color: #31363F;
+}
+.searchRideBtn
+{
+    border: none;
+    outline: none;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #31363F;
+    color: white;
+    cursor: pointer;
+}
+
+.searchRideBtn:hover{
+    background-color: #76ABAE;
+}
+
+.homeContainer{
+    overflow: hidden;
+}
+
+.displayNone{
+    display: none;
+}
+
+.inputTest
+{
+    border: 5px solid red;
+}
+
+.driversLists{
+    margin-top: 1.3rem;
+}

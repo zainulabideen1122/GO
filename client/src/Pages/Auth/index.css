@@ -1,0 +1,93 @@
+.loginContainer{
+    margin-top: -2rem;
+}
+.manualLogin
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem ;
+    justify-content: center;
+    align-items: center;
+}
+
+.manualLogin input{
+    width: 67%;
+    border: 0.5px solid rgba(128, 128, 128, 0.301);
+    outline: none;
+    margin: 0.5rem;
+    padding: 0.8rem 1rem;
+    /* border-radius: 50px; */
+}
+
+.manualLogin button{
+    border: none;
+    background: #31363F;
+    color: white;
+    padding: 0.8rem 1rem;
+    width: 67%;
+    cursor: pointer;
+}
+
+.manualLogin button:hover{
+    background: #76ABAE;
+    transition: 0.2s ease;
+}
+
+.orBreak {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    margin: 0.5rem 0;
+    opacity: 50%;
+    width: 80%;
+    margin-left: 10%;
+}
+
+.orBreak::before,
+.orBreak::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #000;
+    margin: 0 10px;
+    opacity: 50%;
+}
+
+.thirdParty_login
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.thirdParty_login button
+{
+    border: none;
+    background: #76ABAE;
+    padding: 0.8rem 1rem;
+    width: 63%;
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+}
+
+.thirdParty_login button:hover{
+    background: #76abaed0;
+    transition: 0.2s ease;
+}
+
+.thirdParty_login a, .manualLogin a{
+    margin-left: auto;
+    margin-right: 18.5%;
+    margin-top: 0.6rem;
+    text-decoration: underline;
+    color: #31363F;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.registerContainer{
+    margin-top: -2.5rem;
+}

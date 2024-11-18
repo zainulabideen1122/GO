@@ -1,0 +1,58 @@
+.infoHead{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+.infoHead img
+{
+    width: 12%;
+    border: 2px solid #76ABAE;
+    border-radius: 10rem;
+}
+
+.infoHead p{
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-top: 0.6rem;
+}
+
+.infoContent
+{
+    width: 98.4%;
+}
+
+.tesinggg{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+}
+.infoContent_blocks{
+    padding: 0 1rem;
+    margin: 1rem;
+    margin-left: 1.5rem;
+    border-radius: 20px;
+}
+.infoContent_block{
+    padding: 1rem;
+    margin: 0.5rem 0;
+    border-radius: 15px;
+}
+
+.infoContent_block label{
+    color: gray;
+}
+
+.infoContent_block input{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.274);
+    border-radius: 0;
+    padding: 0;
+    padding-left: 5px;
+}
+.saveProfileBtn
+{
+    width: 80%;
+    border: 1px solid red;
+}
