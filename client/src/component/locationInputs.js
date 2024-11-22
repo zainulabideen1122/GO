@@ -54,6 +54,7 @@ function LocationInputs() {
 
             fetchLocation();
         }
+
     }, [source.value.location]);  // Use source.value.location as the dependency
     
     const loader = ()=>{

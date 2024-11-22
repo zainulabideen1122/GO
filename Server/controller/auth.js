@@ -1,13 +1,15 @@
 const jwt = require('jsonwebtoken')
 const User = require("../models/user")
 const {HashPassword, comparePassword} = require('../util/auth')
-
+const {Driver} = require('../models/roles')
 
 const getJWTToken = (user)=>{
     const token =  jwt.sign({
+        id: user._id,
         name:user.name,
         email:user.email,
-        role: user.role
+        role: user.role,
+        isInfoCompleted: user.isInfoCompleted
     }, 'secret', {expiresIn:'1hr'})
 
     return token
@@ -42,21 +44,34 @@ const Register = async(req, res)=>{
     const {credentials, role} = req.body
     const {name, email, password} = credentials
 
-    const isUser = await User.findOne({email:email})
-    if(isUser)
-    {
-        res.status(200).json({msg:"User already exists!"})
-    }
+    // const isUser = await User.findOne({email:email})
+    // if(isUser)
+    // {
+    //     res.status(200).json({msg:"User already exists!"})
+    // }
 
+    // const hashPassword = await HashPassword(password)
+    // const user = await User.create({
+    //     name: name,
+    //     email: email,
+    //     password: hashPassword,
+    //     role: role
+    // })
+
+    console.log(credentials)
+    const isDriver = await Driver.findOne({email: email})
+    if(isDriver)
+        return res.status(200).json({msg: "USer already exists!"})
+    
     const hashPassword = await HashPassword(password)
-    const user = await User.create({
+    const driver = await Driver.create({
         name: name,
         email: email,
-        password: hashPassword,
-        role: role
+        password: hashPassword
     })
 
-    res.status(200).json(getJWTToken(user))
+    console.log(driver)
+    res.status(200).json(getJWTToken(driver))
 
     
 }
@@ -86,4 +101,4 @@ const GoogleAuth = async (req, res)=>{
 
 
 
-module.exports = {Login,Register, GoogleAuth}
+module.exports = {Login,Register, GoogleAuth, getJWTToken}

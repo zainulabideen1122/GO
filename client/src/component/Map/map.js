@@ -2,22 +2,38 @@
 import React, { useEffect, useState } from 'react';
 import { DirectionsRenderer, GoogleMap, Marker, OverlayView, useJsApiLoader } from '@react-google-maps/api';
 import sourceIcon from "../../media/go_dropOff_img.png"
+import { LatLng_to_location } from '../../utils/functions';
+import { jwtDecode } from 'jwt-decode';
 
-function GoogleMapSection({ mapHeight, setPickUp, pickUp, dropOff }) {
+function GoogleMapSection({ mapHeight, setPickUp, pickUp, dropOff, driverLocation, setDriverLocation }) {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [directionRoutePoints, setDirectionRoutePoints] = useState([])
+  const token = localStorage.getItem('token')
+  const userDetails = jwtDecode(token)
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
-      (position) => {
+      async(position) => {
         const { latitude, longitude } = position.coords;
         const location = { lat: latitude, lng: longitude };
         setCurrentLocation(location);
-        setPickUp({
-          ...pickUp,
-          location: location,
-        });
-        console.log("User location:", location);
+        if(userDetails.role === 'Driver')
+        {
+          const driverLoc = await LatLng_to_location(location)
+          setDriverLocation(location)
+          setPickUp({
+            ...pickUp,
+            location: location,
+            name: { label: driverLoc, value: driverLoc }
+          });
+        }
+        else{
+          setPickUp({
+            ...pickUp,
+            location: location,
+          });
+        }
+
       },
       (error) => {
         console.error("Error fetching location:", error);
@@ -43,15 +59,9 @@ function GoogleMapSection({ mapHeight, setPickUp, pickUp, dropOff }) {
 
   const [map, setMap] = useState(null);
 
-  useEffect(() => {
-    console.log("dropOff @@", dropOff);
-  }, [dropOff]);
-
   const onLoad = React.useCallback((map) => {
-    console.log("Map loaded:", map);
     setMap(map);
     if (pickUp && pickUp.location) {
-      console.log("Only pickUp location is available:", pickUp.location);
       map.setCenter(pickUp.location);
     }
   }, [pickUp, dropOff]);
@@ -145,9 +155,13 @@ function GoogleMapSection({ mapHeight, setPickUp, pickUp, dropOff }) {
           textOverflow: 'ellipsis', 
         }}
       >
-        {pickUp?.name?.label || pickUp?.value?.name?.label
+        {console.log("--> ", pickUp)}
+        {/* {pickUp?.name?.label || pickUp?.value?.name?.label
           ? (pickUp?.name?.label || pickUp?.value?.name?.label).slice(0, 20).replace(/\n/g, ' ')
-          : 'Unknown Location'}
+          : 'Unknown Location'} */}
+          {pickUp.name ? 
+              pickUp?.name?.label.substring(pickUp?.name?.label.indexOf(",") + 2).slice(0, 28).replace(/\n/g, ' ')
+              : "Unkown Location"}
       </p>
     </div>
   </OverlayView>
@@ -166,7 +180,7 @@ function GoogleMapSection({ mapHeight, setPickUp, pickUp, dropOff }) {
             }
           }}
         >
-            {console.log("<-- ",dropOff)}
+{console.log("--> ", dropOff)}
             {dropOff && <OverlayView 
                         position={dropOff.location}
                         mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}

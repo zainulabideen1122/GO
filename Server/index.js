@@ -3,6 +3,8 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const autRouter = require('./Routes/auth')
 const homeRouter = require('./Routes/home')
+const userRouter = require('./Routes/user')
+const vehicleRouter = require('./Routes/vehicle')
 const app = express()
 require('dotenv').config();
 
@@ -22,6 +24,8 @@ app.use(cors(corsOptions));
 
 app.use('/auth', autRouter)
 app.use('/home', homeRouter)
+app.use('/user', userRouter)
+app.use('/vehicle', vehicleRouter)
 
 
 

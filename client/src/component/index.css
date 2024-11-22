@@ -82,3 +82,40 @@
     margin-left: 1rem;
     margin-top: 0.5rem;
 }
+
+.navProfile
+{
+    margin-left: auto;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+}
+.navbar_driverStatus{
+    margin-right: 1rem;
+    font-size: 0.8rem;
+}
+.navbar_driverStatus{
+    display: flex;
+    align-items: center;
+}
+.driverStatus_icon{
+    width: 12px;
+    height: 12px;
+    border-radius:10rem ;
+    margin-right: 0.3rem;
+}
+
+.driverStatus_active_icon{
+    background: green;
+    box-shadow: 0 0 7px #2ecc71;
+}
+.driverStatus_away_icon{
+    background: #c0392b;
+    box-shadow: 0 0 7px #e74c3c;
+}
+.driverStatus_text{
+    font-weight: bold;
+}
+.driverStatus_active_text{
+    color: #27ae60;
+}

@@ -24,6 +24,7 @@ function Register() {
             localStorage.setItem('token', res.data)
             navigate('/')
         })
+        
     }
 
     const signUpUser = ()=>{

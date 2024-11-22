@@ -5,14 +5,14 @@ import Register from "./Pages/Auth/register"
 import Home from "./Pages/Home/home";
 import Navbar from "./component/navbar";
 import Profile from "./Pages/Profile/profile";
-
+import { NavbarProvider  } from "./context/NavbarContext";
 function App() {
-  
-  const currentUrl = window.location.pathname
 
   return (<>
     <Router>
-      <AppContent/>
+      <NavbarProvider >
+        <AppContent/>
+      </NavbarProvider >
     </Router>
   </>
   );

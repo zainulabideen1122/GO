@@ -11,5 +11,5 @@ const vehicleSchema = mongoose.Schema({
     owner: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
 })
 
-const Vehicle = mongoose.Model('Vehicle', vehicleSchema);
+const Vehicle = mongoose.model('Vehicle', vehicleSchema);
 module.exports = Vehicle

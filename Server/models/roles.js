@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const mongoose = require('mongoose')
 
 const riderSchema = new mongoose.Schema({
     advancedInfo: {
@@ -39,7 +40,7 @@ const driverSchema = new mongoose.Schema({
 
 
 const Rider = User.discriminator("Rider", riderSchema);
-const Driver = BaseUser.discriminator("Driver", driverSchema);
+const Driver = User.discriminator("Driver", driverSchema);
 
 
 module.exports = {Rider, Driver}

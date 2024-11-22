@@ -11,18 +11,7 @@
     margin-left: 1rem;
 }
 
-.navProfile
-{
-    margin-left: auto;
-    margin-right: 2rem;
-    /*padding: 0.6rem 0.9rem;
-    border-radius: 10rem;
-    font-size: 1.1rem;
-    background-color:#31363F ;
-    color: #EEEEEE;
-    font-weight: bold;
-    text-transform: uppercase; */
-}
+
 
 .toLocation
 {
@@ -168,4 +157,44 @@
 
 .driversLists{
     margin-top: 1.3rem;
+}
+
+.activateBtn
+{
+    background-color: #76ABAE;
+    border: none;
+    width: 75%;
+    padding: 0.7rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    margin-left: 12.5%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.activateBtn:hover
+{
+    background-color: #587e80;
+}
+
+.deActivateBtn{
+    position: absolute;
+    bottom: 3px;
+    width: 80%;
+    padding: 0.3rem;
+    border: none;
+    background: #b2bec3;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+.deActivateBtn:hover{
+    background: #c0392b;
+}
+
+.driverSlidingWindow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
