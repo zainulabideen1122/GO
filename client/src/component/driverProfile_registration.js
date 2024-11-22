@@ -226,8 +226,6 @@ function DriverProfileRegistration({formDetails, setFormDetails, handleChange, u
                             />
                         </Input.Wrapper>
                     </Grid.Col>
-                    
-                    
                 </Grid>
             </Stepper.Step>
 

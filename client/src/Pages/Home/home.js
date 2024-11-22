@@ -13,7 +13,6 @@ import { LoadScript } from "@react-google-maps/api";
 import RideSelector from "../../component/driversList";
 import { Button } from "@mantine/core";
 import UserMenu from "../../component/userMenu";
-import Navbar from "../../component/navbar";
 import HOC from "../../utils/hoc";
 import { NavbarContext } from "../../context/NavbarContext";
 import { useNavigate } from "react-router-dom";

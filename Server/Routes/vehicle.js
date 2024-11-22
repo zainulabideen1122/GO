@@ -2,7 +2,7 @@ const express = require('express')
 const vehicleController = require('../controller/vehicle')
 const router = express.Router()
 
-router.get('/getVehicle/:vehicleID',vehicleController.getVehicle)
+router.get('/getVehicle/:userID',vehicleController.getVehicle)
 
 
 

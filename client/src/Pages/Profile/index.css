@@ -28,9 +28,9 @@
     flex-direction: column;
 }
 .infoContent_blocks{
-    padding: 0 1rem;
-    margin: 1rem;
-    margin-left: 1.5rem;
+    padding: 0 0rem;
+    margin: 1rem 0;
+    margin-left: 0.5rem;
     border-radius: 20px;
 }
 .infoContent_block{
@@ -55,4 +55,15 @@
 {
     width: 80%;
     border: 1px solid red;
+    margin-top: 2rem;
+}
+
+.updateVehicleInfoTag{
+    font-size: 0.7rem;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.updateVehicleInfoTag:hover{
+    color: #76ABAE;
 }

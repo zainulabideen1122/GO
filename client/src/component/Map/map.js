@@ -4,6 +4,7 @@ import { DirectionsRenderer, GoogleMap, Marker, OverlayView, useJsApiLoader } fr
 import sourceIcon from "../../media/go_dropOff_img.png"
 import { LatLng_to_location } from '../../utils/functions';
 import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
 
 function GoogleMapSection({ mapHeight, setPickUp, pickUp, dropOff, driverLocation, setDriverLocation }) {
   const [currentLocation, setCurrentLocation] = useState(null);
@@ -81,7 +82,26 @@ function GoogleMapSection({ mapHeight, setPickUp, pickUp, dropOff, driverLocatio
     map.setZoom(zoomLevel + 0.2);
     directionRoute()
     }
+
+    const createDriverLocation = async()=>{
+      if(pickUp?.location)
+      {
+          await axios.post(`http://localhost:3001/driverLocation/create/${userDetails.id}`, pickUp.location)
+          .then(res=>{
+            //console
+          })
+          .catch(err=>{
+            console.log(err)
+          })
+      }
+    }
+
+    if(userDetails?.role === "Driver"){
+      console.log('create driver location instance!', pickUp)
+      createDriverLocation()
+    }
   }, [map, pickUp, dropOff]);
+
 
   const directionRoute = () => {
     const directionService = new window.google.maps.DirectionsService();

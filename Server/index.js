@@ -5,6 +5,7 @@ const autRouter = require('./Routes/auth')
 const homeRouter = require('./Routes/home')
 const userRouter = require('./Routes/user')
 const vehicleRouter = require('./Routes/vehicle')
+const driverLocationRouter = require('./Routes/driverLocation')
 const app = express()
 require('dotenv').config();
 
@@ -22,6 +23,7 @@ mongoose.connect('mongodb://localhost:27017/go')
 app.use(cors(corsOptions));
 
 
+app.use('/', driverLocationRouter)
 app.use('/auth', autRouter)
 app.use('/home', homeRouter)
 app.use('/user', userRouter)
